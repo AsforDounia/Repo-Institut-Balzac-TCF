@@ -36,6 +36,28 @@
 
 
 
+// ================================================
+// ================================================
+// ================================================
+
+// function timer() {
+//             let timeLeft = 20;
+//             const countdown = document.getElementById("countdown");
+//         const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+//         const seconds = String(timeLeft % 60).padStart(2, '0');
+//         countdown.value = `${minutes}:${seconds}`;
+        
+//         timeLeft--; 
+
+//         if (timeLeft <= 0) {
+//             clearInterval(timer); 
+//             countdown.value = "00:00";
+//         }
+//     }
+// const timer = setInterval(timer, 1000);
+// =============================================
+// =============================================
+// =============================================
 
 const questionsObjet = [
     { 
@@ -155,7 +177,7 @@ function startQuiz() {
         
         questionContainer.innerHTML = `
         <div class="flex justify-between items-center h-16 ">
-            <h2 class="text-[#D49286] text-xl" >Question ${index+1} of 40</h2>
+            <h2 class="text-[#D49286] text-xl" >Question ${index+1} of ${questionsObjet.length}</h2>
             <input type="time" class="bg-transparent countdown">
         </div>
         <p class="text-2xl font-bold">
@@ -285,7 +307,7 @@ function displayQuestion() {
             question.classList.add("hidden");
         });
         question[c].classList.remove("hidden");
-        // startTimer(c);
+        // startTimer(c);  
         c++;
     } else {
         c = 0 ;
@@ -296,13 +318,10 @@ function displayQuestion() {
         const scoreSection = document.getElementById("scoreSection");
         scoreSection.classList.remove("hidden");
         const scoreTitle = document.getElementById("scoreResult");
-        // const spanNumber = document.getElementById("questionNumber");
-        // const questionNumber = questionsObjet.length + 1;
-
 
 		const score = localStorage.getItem("score");
 		scoreTitle.innerHTML = `${score}`;
-		// spanNumber.innerHTML = `${questionNumber}`;
+        seeResult();
 
     }
 }
@@ -424,9 +443,9 @@ function ResultRapport() {
 
 
 
-
+// let timerInterval;
 // function startTimer(i) {
-//     let timeLeft = 20;
+//     let timeLeft = 5;
 //     const countdown = document.getElementsByClassName("countdown");
 
 //     function updateTimer() {
@@ -446,14 +465,10 @@ function ResultRapport() {
 //             ButtonNextQuestion(i,true);
 //         }
 //     }
-
+//     clearInterval(timerInterval); 
 //     updateTimer();
 //     const timerInterval = setInterval(updateTimer, 1000);
 // }
-
-
-
-
 
 
 
